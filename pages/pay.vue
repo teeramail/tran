@@ -8,8 +8,8 @@
     >
       <modernpay:widget
         id="modernpay-widget-container"
-        data-merchantid="M033348"
-        data-amount="10000"
+        data-merchantid="M033598"
+        data-amount="35000"
         data-orderno="00000001"
         data-customerid="123456"
         data-mobileno="0889999999"
@@ -17,7 +17,7 @@
         data-routeno="1"
         data-currency="764"
         data-description="Test Payment"
-        data-apikey="AXXY8ELcfizFvI9vh9EWsvCwz1SmlZammV52DAFfo6zPjUd1Z6"
+        data-apikey="Db6Ep74yKoBrsTkEsg8ELcfizFvI9vh9EWsvCwz1SmlZammV52DAFfo6zPjUd1Z6"
       ></modernpay:widget>
       <button type="submit" id="btnSubmit" value="Submit" class="btn">Payment</button>
     </form>
