@@ -142,7 +142,7 @@ const submitReservation = async () => {
       };
 
       // Redirect to the /payment route with the 'tickets' parameter
-      router.push({ name: 'paymentxx', query: { tickets: createdReservation.tickets } });
+      router.push({ name: 'payment', query: { tickets: createdReservation.tickets } });
     } catch (error) {
       console.error('Error submitting reservation:', error);
     }
