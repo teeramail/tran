@@ -7,7 +7,7 @@
     </div>
     <div>
       <label>Reserve Date:</label>
-      <VueDatePicker v-model="reservation.reserveDate" :min-date="new Date()" :disabled-dates="disableNonWedSat" auto-apply :enable-time-picker="false"/>
+      <VueDatePicker v-model="reservation.reserveDate"></VueDatePicker>
     </div>
     <div>
       <label>Mobile:</label>
@@ -48,16 +48,13 @@ import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
-// const reserveDate = ref(new Date());
-
 const reservation = ref({
   name: '',
-  reserveDate: new Date() ,
+  reserveDate: 'ref(new Date());',
   mobile: '',
   email: '',
   tickets: 1,
 });
-
 
 const confirmReservation = ref(false);
 
@@ -105,11 +102,6 @@ const showConfirmDialog = () => {
   }
 };
 
-const disableNonWedSat = (date) => {
-  const day = date.getDay();
-  return day !== 3 && day !== 6; // Disables all dates that are not Wednesday (3) or Saturday (6)
-};
-
 const submitReservation = async () => {
   if (isEmailValid.value && isMobileValid.value) {
     try {
@@ -142,7 +134,7 @@ const submitReservation = async () => {
       };
 
       // Redirect to the /payment route with the 'tickets' parameter
-      router.push({ name: 'paymentxx', query: { tickets: createdReservation.tickets } });
+      router.push({ name: 'payment', query: { tickets: createdReservation.tickets } });
     } catch (error) {
       console.error('Error submitting reservation:', error);
     }

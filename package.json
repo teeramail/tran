@@ -12,6 +12,8 @@
     "nuxt": "^3.3.3"
   },
   "dependencies": {
+    "@nuxt/bridge": "^0.10.1",
+    "@nuxt/typescript-runtime": "^3.0.1",
     "@vuepic/vue-datepicker": "^4.3.0",
     "md5": "^2.3.0",
     "vue-qrcode-reader": "^3.1.5",

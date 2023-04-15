@@ -1,4 +1,4 @@
-<!-- /pages/reser.vue -->
+<!-- components/ReservationForm.vue -->
 <template>
   <form @submit.prevent="showConfirmDialog">
     <div>
@@ -7,7 +7,7 @@
     </div>
     <div>
       <label>Reserve Date:</label>
-      <VueDatePicker v-model="reservation.reserveDate" :min-date="new Date()" :disabled-dates="disableNonWedSat" auto-apply :enable-time-picker="false"/>
+      <VueDatePicker v-model="reservation.reserveDate"></VueDatePicker>
     </div>
     <div>
       <label>Mobile:</label>
@@ -38,26 +38,39 @@
       </div>
     </div>
   </transition>
+
+  <!-- ... (the rest of the form code) -->
+
+  <form id="payment-form" action="https://cdn.chillpay.co/Payment/" method="post" role="form" class="form-horizontal" style="display: none;">
+    <modernpay:widget id="modernpay-widget-container"
+      data-merchantid="M033598"
+      data-amount="3500"
+      data-orderno="00000001"
+      data-customerid="123456"
+      data-mobileno="0889999999"
+      data-clientip="110.168.249.115"
+      data-routeno="1"
+      data-currency="764"
+      data-description="Boxing Payment"
+      data-apikey="Db6Ep74yKoBrsTkEsg8ELcfizFvI9vh9EWsvCwz1SmlZammV52DAFfo6zPjUd1Z6">
+    </modernpay:widget>
+    <button type="submit" id="btnSubmit" value="Submit" class="btn" style="display: none;">Payment</button>
+  </form>
+
 </template>
 
 <script setup>
 import { ref, computed } from 'vue';
 import VueDatePicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css';
-import { useRouter } from 'vue-router';
-
-const router = useRouter();
-
-// const reserveDate = ref(new Date());
 
 const reservation = ref({
   name: '',
-  reserveDate: new Date() ,
+  reserveDate: '',
   mobile: '',
   email: '',
   tickets: 1,
 });
-
 
 const confirmReservation = ref(false);
 
@@ -67,6 +80,7 @@ const incrementTickets = (event) => {
     reservation.value.tickets += 1;
   }
 };
+
 
 const decrementTickets = (event) => {
   event.preventDefault();
@@ -105,11 +119,6 @@ const showConfirmDialog = () => {
   }
 };
 
-const disableNonWedSat = (date) => {
-  const day = date.getDay();
-  return day !== 3 && day !== 6; // Disables all dates that are not Wednesday (3) or Saturday (6)
-};
-
 const submitReservation = async () => {
   if (isEmailValid.value && isMobileValid.value) {
     try {
@@ -132,6 +141,17 @@ const submitReservation = async () => {
       const createdReservation = await response.json();
       console.log('Reservation submitted:', createdReservation);
 
+      // Prepare payment information
+      const paymentForm = document.getElementById('payment-form');
+      paymentForm.setAttribute('data-amount', reservation.value.tickets * 100);
+      paymentForm.setAttribute('data-orderno', createdReservation._id);
+      paymentForm.setAttribute('data-customerid', createdReservation.customerId);
+      paymentForm.setAttribute('data-mobileno', reservation.value.mobile);
+      paymentForm.setAttribute('data-description', `Reservation for ${reservation.value.name}`);
+
+      // Submit the payment form
+      paymentForm.submit();
+
       // Clear the form
       reservation.value = {
         name: '',
@@ -140,17 +160,15 @@ const submitReservation = async () => {
         email: '',
         tickets: 1,
       };
-
-      // Redirect to the /payment route with the 'tickets' parameter
-      router.push({ name: 'paymentxx', query: { tickets: createdReservation.tickets } });
     } catch (error) {
       console.error('Error submitting reservation:', error);
     }
   }
 };
+
+
+
 </script>
-
-
 
 <style scoped>
 .modal {
