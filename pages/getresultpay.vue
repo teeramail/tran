@@ -1,18 +1,22 @@
-// pages/yourPage.vue
+// pages/getresultpay
+
+<template>
+    <div>
+      <h1>Request Data</h1>
+      <pre>{{ JSON.stringify(requestData, null, 2) }}</pre>
+    </div>
+ </template>
+
 <script setup>
 import { ref } from 'vue';
-import { onRequest } from 'nuxt3';
+import { useAsyncData } from '#app';
 
 const requestData = ref({});
 
-onRequest(async (req) => {
+useAsyncData('requestData', async (context) => {
+  const { req } = context;
   requestData.value = req.body;
 });
 </script>
 
-<template>
-  <div>
-    <h1>Request Data</h1>
-    <pre>{{ JSON.stringify(requestData, null, 2) }}</pre>
-  </div>
-</template>
+
