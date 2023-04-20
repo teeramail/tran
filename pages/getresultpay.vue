@@ -1,13 +1,16 @@
+<!-- pages/getresultpay.vue -->
 <template>
   <div>
-    <h1>ChillPay Callback</h1>
-    <div v-if="transactionResult">
-      <h2>Transaction Details</h2>
+    <h1>Payment Results</h1>
+    <div v-if="paymentResults">
+      <h2>Transactions</h2>
       <ul>
-        <li><strong>Transaction No:</strong> {{ transactionResult.transNo }}</li>
-        <li><strong>Response Code:</strong> {{ transactionResult.respCode }}</li>
-        <li><strong>Status:</strong> {{ transactionResult.status }}</li>
-        <li><strong>Order No:</strong> {{ transactionResult.orderNo }}</li>
+        <li v-for="paymentResult in paymentResults" :key="paymentResult.transNo">
+          <strong>Transaction No:</strong> {{ paymentResult.transNo }}<br>
+          <strong>Response Code:</strong> {{ paymentResult.respCode }}<br>
+          <strong>Status:</strong> {{ paymentResult.status }}<br>
+          <strong>Order No:</strong> {{ paymentResult.orderNo }}<br>
+        </li>
       </ul>
     </div>
     <div v-else>
@@ -17,27 +20,13 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
-import { useNuxtApp } from '#app';
+import { useAsyncData } from '#app';
 
-const transactionResult = ref(null);
-
-async function fetchData(req) {
-  if (req && req.method === 'POST') {
-    const rawData = await new Promise((resolve) => {
-      let data = '';
-      req.on('data', (chunk) => (data += chunk));
-      req.on('end', () => resolve(JSON.parse(data)));
-    });
-    transactionResult.value = rawData;
+const { data: paymentResults } = useAsyncData('paymentResults', async () => {
+  const response = await fetch('https://mykohsamui.com/getresultpay');
+  if (!response.ok) {
+    throw new Error(`Error fetching data: ${response.statusText}`);
   }
-}
-
-onMounted(async () => {
-  const nuxtApp = useNuxtApp();
-  if (process.server) {
-    const { req } = nuxtApp.ssrContext;
-    await fetchData(req);
-  }
+  return await response.json();
 });
 </script>
