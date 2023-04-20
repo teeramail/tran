@@ -1,25 +1,29 @@
-// pages/getresultpay.vue
 <template>
   <div>
-    <h1>Request Data</h1>
-    <pre>{{ JSON.stringify(requestData, null, 2) }}</pre>
+    <h1>ChillPay Callback</h1>
+    <div v-if="transactionResult">
+      <h2>Transaction Details</h2>
+      <ul>
+        <li><strong>Transaction No:</strong> {{ transactionResult.transNo }}</li>
+        <li><strong>Response Code:</strong> {{ transactionResult.respCode }}</li>
+        <li><strong>Status:</strong> {{ transactionResult.status }}</li>
+        <li><strong>Order No:</strong> {{ transactionResult.orderNo }}</li>
+      </ul>
+    </div>
+    <div v-else>
+      <p>No transaction data received.</p>
+    </div>
   </div>
 </template>
 
-<script setup>
-import { ref } from 'vue';
-import { useAsyncData } from '#app';
-
-const requestData = ref({});
-
-useAsyncData('requestData', async () => {
-  const response = await fetch('/api/getStoredData');
-
-  if (response.ok) {
-    const data = await response.json();
-    requestData.value = data;
-  } else {
-    console.error('Error fetching data');
-  }
-});
+<script>
+export default {
+  async asyncData(context) {
+    if (context.req.method === 'POST') {
+      const { body } = context.req;
+      return { transactionResult: body };
+    }
+    return { transactionResult: null };
+  },
+}
 </script>
