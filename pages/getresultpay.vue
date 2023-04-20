@@ -16,30 +16,35 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { ref } from 'vue';
+import util from 'util';
 import bodyParser from 'body-parser';
 
-export default {
-  async asyncData(context) {
-    if (context.req.method === 'POST') {
-      const parseJsonBody = bodyParser.json();
-      let body = null;
+async function asyncData(context) {
+  if (context.req.method === 'POST') {
+    const parseJsonBody = util.promisify(bodyParser.json());
+    await parseJsonBody(context.req, context.res);
+    return { transactionResult: context.req.body };
+  }
+  return { transactionResult: null };
+}
 
-      await new Promise((resolve, reject) => {
-        parseJsonBody(context.req, context.res, (error) => {
-          if (error) {
-            console.error('Error parsing JSON body:', error);
-            reject(error);
-          } else {
-            body = context.req.body;
-            resolve();
-          }
-        });
-      });
+const transactionResult = ref(null);
+(async () => {
+  const data = await asyncData(getContext());
+  if (data.transactionResult) {
+    transactionResult.value = data.transactionResult;
+  }
+})();
 
-      return { transactionResult: body };
-    }
-    return { transactionResult: null };
-  },
-};
+function getContext() {
+  const ctx = {};
+  if (process.server) {
+    const {req, res} = useContext();
+    ctx.req = req;
+    ctx.res = res;
+  }
+  return ctx;
+}
 </script>
