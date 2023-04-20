@@ -9,14 +9,20 @@ export default async (req, res) => {
     });
 
     req.on('end', async () => {
-      console.log('Received data:', data);
-      const parsedData = JSON.parse(data);
+      console.log('Received data:', data); // Log the received data here
 
-      await fs.writeFile('store/data.json', JSON.stringify(parsedData));
-
-      res.statusCode = 200;
-      res.setHeader('Content-Type', 'application/json');
-      res.end(JSON.stringify({ status: 'success' }));
+      if (data) {
+        const parsedData = JSON.parse(data);
+        await fs.writeFile('store/data.json', JSON.stringify(parsedData));
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify({ status: 'success' }));
+      } else {
+        console.log('No data received'); // Log if no data is received
+        res.statusCode = 400;
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify({ status: 'No data received' }));
+      }
     });
   } else {
     res.statusCode = 405;
