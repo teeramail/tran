@@ -17,34 +17,27 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import util from 'util';
-import bodyParser from 'body-parser';
-
-async function asyncData(context) {
-  if (context.req.method === 'POST') {
-    const parseJsonBody = util.promisify(bodyParser.json());
-    await parseJsonBody(context.req, context.res);
-    return { transactionResult: context.req.body };
-  }
-  return { transactionResult: null };
-}
+import { ref, onMounted } from 'vue';
+import { useNuxtApp } from '#app';
 
 const transactionResult = ref(null);
-(async () => {
-  const data = await asyncData(getContext());
-  if (data.transactionResult) {
-    transactionResult.value = data.transactionResult;
-  }
-})();
 
-function getContext() {
-  const ctx = {};
-  if (process.server) {
-    const {req, res} = useContext();
-    ctx.req = req;
-    ctx.res = res;
+async function fetchData(req) {
+  if (req && req.method === 'POST') {
+    const rawData = await new Promise((resolve) => {
+      let data = '';
+      req.on('data', (chunk) => (data += chunk));
+      req.on('end', () => resolve(JSON.parse(data)));
+    });
+    transactionResult.value = rawData;
   }
-  return ctx;
 }
+
+onMounted(async () => {
+  const nuxtApp = useNuxtApp();
+  if (process.server) {
+    const { req } = nuxtApp.ssrContext;
+    await fetchData(req);
+  }
+});
 </script>
