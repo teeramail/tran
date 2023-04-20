@@ -9,7 +9,7 @@ export default async (req, res) => {
     });
 
     req.on('end', async () => {
-      console.log('Received data:', data); // Log the received data here
+      console.log('Received data:', data);
 
       if (data) {
         const parsedData = JSON.parse(data);
@@ -18,7 +18,7 @@ export default async (req, res) => {
         res.setHeader('Content-Type', 'application/json');
         res.end(JSON.stringify({ status: 'success' }));
       } else {
-        console.log('No data received'); // Log if no data is received
+        console.log('No data received');
         res.statusCode = 400;
         res.setHeader('Content-Type', 'application/json');
         res.end(JSON.stringify({ status: 'No data received' }));
