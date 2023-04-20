@@ -17,13 +17,29 @@
 </template>
 
 <script>
+import bodyParser from 'body-parser';
+
 export default {
   async asyncData(context) {
     if (context.req.method === 'POST') {
-      const { body } = context.req;
+      const parseJsonBody = bodyParser.json();
+      let body = null;
+
+      await new Promise((resolve, reject) => {
+        parseJsonBody(context.req, context.res, (error) => {
+          if (error) {
+            console.error('Error parsing JSON body:', error);
+            reject(error);
+          } else {
+            body = context.req.body;
+            resolve();
+          }
+        });
+      });
+
       return { transactionResult: body };
     }
     return { transactionResult: null };
   },
-}
+};
 </script>
