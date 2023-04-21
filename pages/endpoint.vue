@@ -14,7 +14,7 @@ const transNo = ref(null)
 const requestData = ref(null)
 
 const fetchTransNo = async () => {
-  const response = await fetch('/postRequestHandler')
+  const response = await fetch('/endpoint')
   const data = await response.json()
   return { transNo: data.transNo, requestData: data }
 }
