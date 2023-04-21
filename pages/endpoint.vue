@@ -6,13 +6,14 @@
 </template>
 
 <script setup>
-import { useAsyncData, useContext } from '@nuxtjs/composition-api'
 
-const context = useContext()
-const fetchId = async () => {
-  const transNo = context.req.value.body.transNo
-  return { transNo }
+const transNo = ref(null)
+
+const fetchtransNo = async () => {
+  const { req } = useNuxt().ssrContext
+  const data = req.body.transNo
+  return { transNo: data }
 }
 
-const { data: transNo } = useAsyncData('transNo', fetchId)
+useAsyncData('transNo', fetchtransNo, transNo)
 </script>
