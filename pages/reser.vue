@@ -127,11 +127,15 @@ const disableNonWedSat = (date) => {
   return day !== 3 && day !== 6; // Disables all dates that are not Wednesday (3) or Saturday (6)
 };
 
+
 const submitReservation = async () => {
   if (isEmailValid.value && isMobileValid.value) {
     try {
       // Close the confirmation dialog
       confirmReservation.value = false;
+
+      // Log the reservation data before sending it
+      console.log('Sending reservation data:', reservation.value);
 
       // Save the reservation data to MongoDB
       const response = await fetch("https://koh-samui.com:53005/reservations", {
@@ -165,6 +169,7 @@ const submitReservation = async () => {
     }
   }
 };
+
 </script>
 
 
