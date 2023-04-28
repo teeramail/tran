@@ -9,6 +9,7 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@unocss/nuxt": "^0.51.8",
     "nuxt": "^3.3.3"
   },
   "dependencies": {
@@ -17,7 +18,9 @@
     "@vuepic/vue-datepicker": "^4.3.0",
     "body-parser": "^1.20.2",
     "md5": "^2.3.0",
+    "nanoid": "^4.0.2",
     "query-string": "^8.1.0",
+    "swiper": "^9.2.4",
     "vue-qrcode-reader": "^3.1.5",
     "vue3-qrcode-reader": "^0.0.1"
   }

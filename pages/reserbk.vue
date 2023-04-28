@@ -2,7 +2,7 @@
 <template>
   <div class="page-background">
   <div class="header-container">
-    <h2 class="header">{{headerText}}</h2>
+    <h2 class="header">Samui Super Fight</h2>
   </div>
   <div class="form-container">
     <div class="form-wrapper">
@@ -35,11 +35,8 @@
         </div>
         <button type="submit" :disabled="!isEmailValid || !isMobileValid">Submit Reservation</button>
       </form>
-      <!-- <div class="bottom-text">
-        Join us at  Phetchbuncha boxing stadium for an unforgettable night! Start at 21:00, with live music and spectacular performances to entertain you - all for FREE before the main event begins! Arrive early and savor complimentary food and drinks at our stadium. Don't miss out on this incredible experience!
-      </div> -->
       <div class="bottom-text">
-        Join us at  Chada Restaurant  for an unforgettable night! Start at 19:00, with live music and spectacular performances to entertain you - all for FREE before the main event begins! Arrive early and savor complimentary food 
+        Join us at  Phetchbuncha boxing stadium for an unforgettable night! Start at 21:00, with live music and spectacular performances to entertain you - all for FREE before the main event begins! Arrive early and savor complimentary food and drinks at our stadium. Don't miss out on this incredible experience!
       </div>
       <transition name="modal">
         <div v-if="confirmReservation" class="modal">
@@ -56,6 +53,10 @@
 </div>
 </template>
 
+
+
+
+
 <script setup>
 import '~/assets/ReserStyles.css';
 import { ref, computed } from 'vue';
@@ -64,26 +65,12 @@ import '@vuepic/vue-datepicker/dist/main.css';
 import { useRouter } from 'vue-router';
 import { useRoute } from 'vue-router';
 
-const router = useRouter();
 const route = useRoute();
-const uniqueID = ref('');
 const dataCustomerId = ref(route.query.dataCustomerId);
 const dataAmount = ref(route.query.dataAmount || 0);
-const headerText = ref(route.query.dataCustomerId || 'Start Booking');
-
-async function generateUniqueID() {
-  const { customAlphabet } = await import('nanoid');
-  const alphabet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-  const length = 7;
-  const nanoid = customAlphabet(alphabet, length);
-
-  const timestamp = Date.now().toString(36);
-  uniqueID.value = timestamp + nanoid(); // Set the value of uniqueID ref
-  console.log(uniqueID.value);
-  return uniqueID.value;
-}
 
 
+const router = useRouter();
 
 // const reserveDate = ref(new Date());
 
@@ -154,10 +141,6 @@ const submitReservation = async () => {
       // Close the confirmation dialog
       confirmReservation.value = false;
 
-      await generateUniqueID();
-
-      reservation.value.orderno = uniqueID.value;
-
       // Log the reservation data before sending it
       console.log('Sending reservation data:', reservation.value);
 
@@ -177,11 +160,6 @@ const submitReservation = async () => {
       const createdReservation = await response.json();
       console.log('Reservation submitted:', createdReservation);
 
-      // Store data in temporary variables before clearing the form
-      const tempTickets = createdReservation.tickets;
-      const tempOrderNo = uniqueID.value;
-      const tempEmail = reservation.value.email;
-
       // Clear the form
       reservation.value = {
         name: '',
@@ -189,29 +167,26 @@ const submitReservation = async () => {
         mobile: '',
         email: '',
         tickets: 1,
-        orderno: '',
       };
       
       // Redirect to the /payment route with the 'tickets' parameter
       router.push({
-        name: 'payment',
-        query: {
-          tickets: tempTickets,
-          dataCustomerId: dataCustomerId.value,
-          dataAmount: dataAmount.value,
-          dataOrderNo: tempOrderNo,
-          dataDescription: tempOrderNo,
-          dataEmail: tempEmail,
-        },
-      });
+      name: 'payment',
+      query: {
+      tickets: createdReservation.tickets,
+      dataCustomerId: dataCustomerId.value,
+      dataAmount: dataAmount.value,
+      },
+
+  });
+
+
 
     } catch (error) {
       console.error('Error submitting reservation:', error);
     }
   }
 };
-
-
 
 </script>
 

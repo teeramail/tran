@@ -1,15 +1,22 @@
+<!-- /pages/payment.vue -->
 <template>
   <div>
-    <Payment />
+    <Payment :data-customerid="dataCustomerId" />
   </div>
+
+
+  
 </template>
 
-<script>
-import Payment from '/components/payment.vue'
+<script setup>
+import Payment from '/components/payment.vue';
+import { useRoute } from 'vue-router';
+import { ref } from 'vue';
 
-export default {
-  components: {
-    Payment,
-  },
-}
+const route = useRoute();
+const dataCustomerId = ref(route.query.dataCustomerId);
+
+console.log(dataCustomerId.value);
+
+
 </script>
