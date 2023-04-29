@@ -8,7 +8,5 @@ export default defineNuxtConfig({
     transpile: ['@vuepic/vue-datepicker'],
   },
   // @ts-ignore
-  serverMiddleware: [
-    { path: '/endpoint', handler: '~/server-middleware/postRequestHandler.js' },
-],
+
 })

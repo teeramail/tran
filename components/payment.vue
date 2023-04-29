@@ -15,7 +15,7 @@
         :data-orderno="dataOrderNo"
         :data-customerid="dataCustomerId"
         :data-mobileno="dataMobileno"
-        data-clientip="58.11.86.61"
+        :data-clientip="datClientip"
         data-routeno="1"
         data-currency="764"
         :data-description="dataEmail"
@@ -37,6 +37,7 @@ const dataCustomerId = ref(route.query.dataCustomerId || '');
 const dataOrderNo = ref(route.query.dataOrderNo || 'x');
 const dataEmail = ref(route.query.dataEmail || '333@a.com');
 const dataAmount = computed(() => tickets.value * 3000);
+const datClientip = ref(route.query.dataClientip || '53.11.86.61');
 
 onMounted(() => {
   const script = document.createElement('script');

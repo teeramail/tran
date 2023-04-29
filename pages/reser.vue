@@ -66,7 +66,6 @@ import { useRoute } from 'vue-router';
 
 const router = useRouter();
 const route = useRoute();
-const uniqueID = ref('');
 const dataCustomerId = ref(route.query.dataCustomerId);
 const dataAmount = ref(route.query.dataAmount || 0);
 const headerText = ref(route.query.dataCustomerId || 'Start Booking');
@@ -78,12 +77,20 @@ async function generateUniqueID() {
   const nanoid = customAlphabet(alphabet, length);
 
   const timestamp = Date.now().toString(36);
-  uniqueID.value = timestamp + nanoid(); // Set the value of uniqueID ref
-  console.log(uniqueID.value);
-  return uniqueID.value;
+  const uniqueID = timestamp + nanoid(); // Set the value of uniqueID ref
+  console.log(uniqueID);
+  return uniqueID;
 }
 
+async function getIpAddress() {
+      const response = await fetch('https://api.ipify.org?format=json');
+      const data = await response.json();
+      console.log("Your IP Address:", data.ip);
+      const ipAddress = data.ip;
+      return ipAddress;
+    }
 
+getIpAddress();
 
 // const reserveDate = ref(new Date());
 
@@ -154,9 +161,12 @@ const submitReservation = async () => {
       // Close the confirmation dialog
       confirmReservation.value = false;
 
-      await generateUniqueID();
+      const uniqueID = await generateUniqueID();
+      reservation.value.orderno = uniqueID ;
 
-      reservation.value.orderno = uniqueID.value;
+
+      const ipAddress = await getIpAddress();
+      reservation.value.ipaddress = ipAddress;
 
       // Log the reservation data before sending it
       console.log('Sending reservation data:', reservation.value);
@@ -179,7 +189,8 @@ const submitReservation = async () => {
 
       // Store data in temporary variables before clearing the form
       const tempTickets = createdReservation.tickets;
-      const tempOrderNo = uniqueID.value;
+      const tempOrderNo = reservation.value.orderno
+      const tempIpaddress = reservation.value.ipaddress ;
       const tempEmail = reservation.value.email;
 
       // Clear the form
@@ -202,6 +213,7 @@ const submitReservation = async () => {
           dataOrderNo: tempOrderNo,
           dataDescription: tempOrderNo,
           dataEmail: tempEmail,
+          datClientip: tempIpaddress,
         },
       });
 
