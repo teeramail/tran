@@ -20,7 +20,7 @@ const onDecode = async (content) => {
   decodedContent.value = content;
   
   try {
-    const response = await fetch(`https://koh-samui.com:53005/reservations?orderno=${content}`, {
+    const response = await fetch(`https://koh-samui.com:53005/payresultone?OrderNo=${content}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
@@ -33,7 +33,7 @@ const onDecode = async (content) => {
 
     const data = await response.json();
 
-    if (data.orderno === content) {
+    if (data.OrderNo === content) {
       result.value = data;
     } else {
       result.value = "Order number not found or doesn't match";
