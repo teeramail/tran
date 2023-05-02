@@ -1,7 +1,7 @@
 <template>
   <div>
     <ClientOnly>
-      <qrcode-stream @decode="onDecode" @error="onError"></qrcode-stream>
+      <qrcode-stream v-if="scanning" @decode="onDecode" @error="onError"></qrcode-stream>
     </ClientOnly>
     <div v-if="decodedContent">Decoded content: {{ decodedContent }}</div>
     <div v-if="result">Result: {{ result }}</div>
@@ -14,10 +14,12 @@ import { QrcodeStream } from "vue3-qrcode-reader";
 
 const decodedContent = ref(null);
 const result = ref(null);
+const scanning = ref(true);
 
 const onDecode = async (content) => {
   console.log("Decoded QR code:", content);
   decodedContent.value = content;
+  scanning.value = false;
   
   try {
     const response = await fetch(`https://koh-samui.com:53005/payresultone?OrderNo=${content}`, {
