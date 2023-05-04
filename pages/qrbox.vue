@@ -12,17 +12,21 @@
 import { ref } from 'vue';
 import { QrcodeStream } from "vue3-qrcode-reader";
 
+const scanning = ref(true);
 const decodedContent = ref(null);
 const result = ref(null);
-const scanning = ref(true);
+
+const onError = (error) => {
+  console.error("QR code scanning error:", error);
+};
 
 const onDecode = async (content) => {
   console.log("Decoded QR code:", content);
   decodedContent.value = content;
   scanning.value = false;
-  
+
   try {
-    const response = await fetch(`https://koh-samui.com:53005/payresultone?OrderNo=${content}`, {
+    const response = await fetch(`https://koh-samui.com:53005/payresultone?orderno=${decodedContent.value}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
@@ -35,7 +39,7 @@ const onDecode = async (content) => {
 
     const data = await response.json();
 
-    if (data.OrderNo === content) {
+    if (data.OrderNo === decodedContent.value) {
       result.value = data;
     } else {
       result.value = "Order number not found or doesn't match";
@@ -45,7 +49,4 @@ const onDecode = async (content) => {
   }
 };
 
-const onError = (error) => {
-  console.error("QR code scanning error:", error);
-};
 </script>
