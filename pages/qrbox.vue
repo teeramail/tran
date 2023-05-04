@@ -39,7 +39,7 @@ const onDecode = async (content) => {
 
     const data = await response.json();
 
-    if (data.OrderNo === decodedContent.value) {
+    if (data.orderno === decodedContent.value) {
       result.value = data;
     } else {
       result.value = "Order number not found or doesn't match";
