@@ -5,6 +5,7 @@
     </ClientOnly>
     <div v-if="decodedContent">Decoded content: {{ decodedContent }}</div>
     <div v-if="result">Result: {{ result }}</div>
+    <button v-if="decodedContent" @click="onButtonClick">Update usedatetime</button>
   </div>
 </template>
 
@@ -39,13 +40,34 @@ const onDecode = async (content) => {
 
     const data = await response.json();
 
-    if (data.orderno === decodedContent.value) {
-      result.value = data;
+    if (data.length > 0 && data[0].orderno === decodedContent.value) {
+      result.value = data[0];
     } else {
       result.value = "Order number not found or doesn't match";
     }
   } catch (error) {
     console.error('Error fetching data:', error);
+  }
+};
+
+const onButtonClick = async () => {
+  try {
+    const response = await fetch("https://koh-samui.com:53005/payresultone/update-usedatetime", {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ orderno: decodedContent.value }) // Replace this with the actual orderno
+    });
+
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+
+    const data = await response.json();
+    console.log("Updated usedatetime:", data);
+  } catch (error) {
+    console.error("Error updating usedatetime:", error);
   }
 };
 
