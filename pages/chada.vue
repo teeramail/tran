@@ -95,9 +95,5 @@
    
   ];
   
-  defineComponent({
-    components: {
-      ImageSlider,
-    },
-  });
+
   </script>

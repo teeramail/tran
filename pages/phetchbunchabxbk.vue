@@ -30,11 +30,22 @@
   
 <script setup>
 import ImageSlider from '~/components/ImageSlider.vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter  } from 'vue-router';
 
 const route = useRoute();
+const router = useRouter();
 const idenger = route.query.idenger;
 
+// const goToReser = () => {
+//   router.push({
+//     name: 'reser',
+//     query: {
+//       dataCustomerId: 'Phetchbancha Muay Thai Stadium',
+//       dataAmount: route.query.idenger,
+//       idenger: idenger,
+//     },
+//   });
+// };
 
 
 const sliderImages = [

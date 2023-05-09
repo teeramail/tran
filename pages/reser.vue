@@ -35,9 +35,6 @@
         </div>
         <button type="submit" :disabled="!isEmailValid || !isMobileValid">Submit Reservation</button>
       </form>
-      <!-- <div class="bottom-text">
-        Join us at  Phetchbuncha boxing stadium for an unforgettable night! Start at 21:00, with live music and spectacular performances to entertain you - all for FREE before the main event begins! Arrive early and savor complimentary food and drinks at our stadium. Don't miss out on this incredible experience!
-      </div> -->
       <div class="bottom-text">
         Join us at  Chada Restaurant  for an unforgettable night! Start at 19:00, with live music and spectacular performances to entertain you - all for FREE before the main event begins! Arrive early and savor complimentary food 
       </div>
@@ -63,36 +60,15 @@ import VueDatePicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css';
 import { useRouter } from 'vue-router';
 import { useRoute } from 'vue-router';
+import { generateUniqueID } from '~/utils/uniqueID.js'; // Update the path to match the location of the uniqueID.js file in your project
+import { getIpAddress } from '~/utils/ipAddress.js'; 
 
 const router = useRouter();
 const route = useRoute();
 const dataCustomerId = ref(route.query.dataCustomerId);
-const dataAmount = ref(route.query.dataAmount || 0);
+const idenger = route.query.idenger;
+const dataAmount = ref(route.query.dataAmount || 3000);
 const headerText = ref(route.query.dataCustomerId || 'Start Booking');
-
-async function generateUniqueID() {
-  const { customAlphabet } = await import('nanoid');
-  const alphabet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-  const length = 7;
-  const nanoid = customAlphabet(alphabet, length);
-
-  const timestamp = Date.now().toString(36);
-  const uniqueID = timestamp + nanoid(); // Set the value of uniqueID ref
-  console.log(uniqueID);
-  return uniqueID;
-}
-
-async function getIpAddress() {
-      const response = await fetch('https://api.ipify.org?format=json');
-      const data = await response.json();
-      console.log("Your IP Address:", data.ip);
-      const ipAddress = data.ip;
-      return ipAddress;
-    }
-
-getIpAddress();
-
-// const reserveDate = ref(new Date());
 
 const reservation = ref({
   name: '',
@@ -101,10 +77,7 @@ const reservation = ref({
   email: '',
   tickets: 1,
 });
-
-
 const confirmReservation = ref(false);
-
 const incrementTickets = (event) => {
   event.preventDefault();
   if (reservation.value.tickets < 20) {
@@ -154,7 +127,6 @@ const disableNonWedSat = (date) => {
   return day !== 3 && day !== 6; // Disables all dates that are not Wednesday (3) or Saturday (6)
 };
 
-
 const submitReservation = async () => {
   if (isEmailValid.value && isMobileValid.value) {
     try {
@@ -164,13 +136,13 @@ const submitReservation = async () => {
       const uniqueID = await generateUniqueID();
       reservation.value.orderno = uniqueID ;
 
-
       const ipAddress = await getIpAddress();
       reservation.value.ipaddress = ipAddress;
 
+      reservation.value.idenger = idenger;
+
       // Log the reservation data before sending it
       console.log('Sending reservation data:', reservation.value);
-
       // Save the reservation data to MongoDB
       const response = await fetch("https://koh-samui.com:53005/reservations", {
         method: "POST",
@@ -192,7 +164,6 @@ const submitReservation = async () => {
       const tempOrderNo = reservation.value.orderno
       const tempIpaddress = reservation.value.ipaddress ;
       const tempEmail = reservation.value.email;
-
       // Clear the form
       reservation.value = {
         name: '',
@@ -201,6 +172,7 @@ const submitReservation = async () => {
         email: '',
         tickets: 1,
         orderno: '',
+        idenger: '',
       };
       
       // Redirect to the /payment route with the 'tickets' parameter
@@ -223,7 +195,4 @@ const submitReservation = async () => {
   }
 };
 
-
-
 </script>
-

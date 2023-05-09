@@ -30,7 +30,7 @@
   
 <script setup>
 import ImageSlider from '~/components/ImageSlider.vue';
-import { useRoute } from 'vue-router';
+import { useRoute} from 'vue-router';
 
 const route = useRoute();
 const idenger = route.query.idenger;
