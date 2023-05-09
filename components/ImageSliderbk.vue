@@ -37,7 +37,7 @@ const goToReser = () => {
     name: 'reser',
     query: {
       dataCustomerId: props.dataCustomerId,
-      idenger: route.query.idenger,
+      dataAmount: route.query.idenger,
     },
   });
 };
@@ -60,6 +60,15 @@ const props = defineProps({
     type: String,
     required: false,
     default: '',
+  },
+});
+
+
+
+defineComponent({
+  components: {
+    Swiper,
+    SwiperSlide,
   },
 });
 </script>
