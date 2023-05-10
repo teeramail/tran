@@ -11,8 +11,5 @@ export default defineNuxtConfig({
     transpile: ['@vuepic/vue-datepicker'],
   },
   // @ts-ignore
-  middleware: {
-    recordVisit, // Add the middleware here
-  },
 
 })
