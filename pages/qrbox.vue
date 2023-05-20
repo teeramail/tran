@@ -4,13 +4,24 @@
       <qrcode-stream v-if="scanning" @decode="onDecode" @error="onError"></qrcode-stream>
     </ClientOnly>
     <div v-if="decodedContent">Decoded content: {{ decodedContent }}</div>
-    <div v-if="result">Result: {{ result }}</div>
+    <div v-if="result">
+      <div>Name: {{ result.name }}</div>
+      <div>Mobile: {{ result.mobile }}</div>
+      <div>Tickets: {{ result.tickets }}</div>
+      <div>OrderNo: {{ result.orderno }}</div>
+      <div :class="{'text-green-500': isPaymentSuccessful, 'text-red-500': !isPaymentSuccessful}">
+        PaymentStatus: {{ paymentStatusText }}
+      </div>
+      <div>Amount: {{ result.paymentResult.Amount }}</div>
+      <div>Agent Name: {{ result.agent.agent_name }}</div>
+      <div>Agent Email: {{ result.agent.agent_email }}</div>
+    </div>
     <button v-if="decodedContent" @click="onButtonClick">Update usedatetime</button>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { QrcodeStream } from "vue3-qrcode-reader";
 
 const scanning = ref(true);
@@ -70,5 +81,9 @@ const onButtonClick = async () => {
     console.error("Error updating usedatetime:", error);
   }
 };
+
+// computed properties
+const isPaymentSuccessful = computed(() => result.value?.paymentResult?.PaymentStatus === 0);
+const paymentStatusText = computed(() => isPaymentSuccessful.value ? 'success' : 'unsuccess');
 
 </script>
