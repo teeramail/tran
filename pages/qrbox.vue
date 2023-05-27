@@ -18,13 +18,14 @@
       <div>Event Date: {{ readableDate }}</div>
       <div class="text-red-500">usedatetime: {{ thaiDateString }} {{ thaiTimeString}}</div>
     </div>
-    <button v-if="decodedContent && !usedatetimeUpdated" @click="onButtonClick">Update usedatetime</button>
+    <button v-if="isPaymentSuccessful && isUsedatetimeNull && !usedatetimeUpdated" @click="onButtonClick">Update usedatetime</button>
   </div>
 </template>
 
 <script setup>
 import { ref, computed } from 'vue';
 import { QrcodeStream } from "vue3-qrcode-reader";
+
 const scanning = ref(true);
 const decodedContent = ref(null);
 const result = ref(null);
@@ -45,9 +46,7 @@ const readableDate = computed(() => {
 const thaiDateString = computed(() => {
   if(result.value && result.value.usedatetime) {
     const utcDateTime = new Date(result.value.usedatetime);
-    // Adjusting the date to Thai date
     const thaiDateTime = new Date(utcDateTime.getTime() + (7 * 60 * 60 * 1000));
-    // Formatting the Thai date
     const thaiYear = thaiDateTime.getUTCFullYear();
     const thaiMonth = ("0" + (thaiDateTime.getUTCMonth() + 1)).slice(-2);
     const thaiDay = ("0" + thaiDateTime.getUTCDate()).slice(-2);
@@ -60,9 +59,7 @@ const thaiDateString = computed(() => {
 const thaiTimeString = computed(() => {
   if(result.value && result.value.usedatetime) {
     const utcDateTime = new Date(result.value.usedatetime);
-    // Adjusting the time to Thai time
     const thaiDateTime = new Date(utcDateTime.getTime() + (7 * 60 * 60 * 1000));
-    // Formatting the Thai time
     const thaiHour = ("0" + thaiDateTime.getUTCHours()).slice(-2);
     const thaiMinute = ("0" + thaiDateTime.getUTCMinutes()).slice(-2);
     const thaiSecond = ("0" + thaiDateTime.getUTCSeconds()).slice(-2);
@@ -96,13 +93,15 @@ const onDecode = async (content) => {
       result.value = data[0];
       console.log(result.value);
     } else {
-      result.value = "Order number not found or doesn't match";
+      result.value = null;
     }
   
   } catch (error) {
     console.error('Error fetching data:', error);
   }
 };
+
+const isUsedatetimeNull = computed(() => result.value?.usedatetime == null);
 
 const onButtonClick = async () => {
   try {
@@ -115,7 +114,7 @@ const onButtonClick = async () => {
     });
 
     if (!response.ok) {
-      throw new Error("Network response was not ok");
+      throw new Error('Network response was not ok');
     }
 
     const data = await response.json();
@@ -127,7 +126,6 @@ const onButtonClick = async () => {
   }
 };
 
-// computed properties
 const isPaymentSuccessful = computed(() => result.value?.paymentResult?.PaymentStatus === 0);
 const paymentStatusText = computed(() => isPaymentSuccessful.value ? 'success' : 'unsuccess');
 
