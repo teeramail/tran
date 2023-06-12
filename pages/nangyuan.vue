@@ -18,7 +18,7 @@
       </div>
     </div>
     <button @click="goToReser" class="bg-green-600 text-white px-4 py-2 rounded-md mt-4 hover:bg-blue-700">
-      Book Now
+     Test Nangyuan
     </button>
   </div>
 </template>
