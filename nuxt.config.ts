@@ -6,10 +6,20 @@ export default defineNuxtConfig({
   modules: [
     '@unocss/nuxt',
   ],
-
+  css: [
+    "primevue/resources/themes/lara-light-blue/theme.css",
+    "primevue/resources/primevue.css"
+],
   build: {
-    transpile: ['@vuepic/vue-datepicker'],
+    transpile: ['@vuepic/vue-datepicker',"primevue"],            
   },
-  // @ts-ignore
+  plugins: ['~/plugins/primevue.js']
+
+
 
 })
+
+
+
+  
+

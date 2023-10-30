@@ -20,7 +20,7 @@ async function submitForm() {
       throw new Error('Error adding record: ' + response.statusText);
     }
 
-    router.push({ path: '/phetchbuncha', query: { idenger: idenger} });
+    router.push({ path: '/a01', query: { idenger: idenger} });
   } catch (error) {
     alert('Error adding record: ' + error.message);
   }

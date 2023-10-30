@@ -1,3 +1,4 @@
+// components\Enter.vue
 <template>
     <div></div>
 </template>
@@ -6,15 +7,7 @@
 import { onMounted, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
-// const props = defineProps({
-//     idenger: {
-//         type: String,
-//         required: true,
-//     },
-// });
-
 const emit = defineEmits(['prereservation-created']);
-
 const route = useRoute();
 const router = useRouter();
 const idenger = ref(route.query.idenger); 
@@ -56,15 +49,18 @@ async function submitForm() {
         console.log(prereservationId);
         emit('prereservation-created', prereservationId);
 
-        router.push({ path: '/a01', query: { idenger: idenger.value } });
+    //    router.push({ path: '/a01', query: { idenger: idenger.value } });
     } catch (error) {
         alert('Error adding record: ' + error.message);
     }
 }
   
 onMounted(() => {
-    if (idenger.value) { 
-        submitForm();
+    if (!idenger.value) { 
+        idenger.value = 'lh2jxr3smnhittt';
     }
+    submitForm();
 });
+
+
 </script>

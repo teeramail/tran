@@ -1,6 +1,7 @@
 <!-- /pages/chada.vue -->
 
 <template>
+  <div><h1>test Nangyuan</h1></div>
   <div class="min-h-screen flex flex-col items-center justify-center">
     <image-slider :slider-images="sliderImages"></image-slider>
     <div class="flex flex-wrap mt-8 container mx-auto">

@@ -1,3 +1,4 @@
+// C:\Users\cteer\vueproject\nuxt3\samui\pages\a01.vue
 <template>
   <div class="container mx-auto flex flex-col items-center">
     <div

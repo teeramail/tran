@@ -1,7 +1,7 @@
 <!-- /pages/payment.vue -->
 <template>
   <div>
-    <Payment :data-customerid="dataCustomerId" />
+    <Payment :preReservationId="preReservationId" />
   </div>
 
 
@@ -14,9 +14,10 @@ import { useRoute } from 'vue-router';
 import { ref } from 'vue';
 
 const route = useRoute();
-const dataCustomerId = ref(route.query.dataCustomerId);
+const preReservationId = route.query.preReservationId;
 
-console.log(dataCustomerId.value);
+
+console.log(preReservationId);
 
 
 </script>

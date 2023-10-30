@@ -1,0 +1,1 @@
+export { default } from "file:///C:/Users/cteer/vueproject/nuxt3/samui/node_modules/@nuxt/vite-builder/dist/runtime/client.manifest.mjs"

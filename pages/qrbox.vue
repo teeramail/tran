@@ -13,8 +13,8 @@
         PaymentStatus: {{ paymentStatusText }}
       </div>
       <div>Amount: {{ result.paymentResult.Amount }}</div>
-      <div>Agent Name: {{ result.agent.agent_name }}</div>
-      <div>Agent Email: {{ result.agent.agent_email }}</div>
+     <!-- <div>Agent Name: {{ result.agent.agent_name }}</div> -->
+      <!-- <div>Agent Email: {{ result.agent.agent_email }}</div> -->
       <div>Event Date: {{ readableDate }}</div>
       <div class="text-red-500">usedatetime: {{ thaiDateString }} {{ thaiTimeString}}</div>
     </div>
