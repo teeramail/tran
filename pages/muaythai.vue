@@ -57,7 +57,7 @@ const preserId = ref(null);
 
 // If organizerId is a constant value, it can be set like this:
 // const organizerId = '645d64c086e4d377b0496543';
-const eventGroup = 'a001';
+const eventGroup = 'cm001';
 
 
 
