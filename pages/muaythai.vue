@@ -63,9 +63,7 @@
 
     <Enter :idenger="idenger" :organizerId="organizerId" @prereservation-created="handlePrereservationCreated" />
 
-    <div class="text-center mt-8">
-      <!-- ... Rest of your content ... -->
-    </div>
+
 
     <div id="floating-button">
       <div class="button-container">
