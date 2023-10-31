@@ -1,13 +1,16 @@
 <template>
   <div class="container mx-auto flex flex-col items-center min-h-screen flex-grow">
-    <header>
-      <h1>Muay Thai in Chiang Mai: An In-depth Look at the City's Premier Boxing Stadiums</h1>
+    <nuxt-head>
       <title>Muay Thai in Chiang Mai: Premier Boxing Stadiums | YourSiteName</title>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="description" content="An in-depth guide to the premier Muay Thai boxing stadiums in Chiang Mai. Experience the traditional martial art in the city's top venues.">
       <meta name="keywords" content="Muay Thai, Chiang Mai, Boxing Stadiums, Martial Art, Thai Culture">
-//      <link rel="canonical" href="https://www.muaythaicm.com/muaythai">
+      <link rel="canonical" href="https://www.muaythaicm.com/muaythai">
+    </nuxt-head>
+
+    <header>
+      <h1>Muay Thai in Chiang Mai: An In-depth Look at the City's Premier Boxing Stadiums</h1>
     </header>
 
     <section>
