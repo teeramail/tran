@@ -1,13 +1,5 @@
 <template>
   <div class="container mx-auto flex flex-col items-center min-h-screen flex-grow">
-    <nuxt-head>
-      <title>Muay Thai in Chiang Mai: Premier Boxing Stadiums | YourSiteName</title>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="description" content="An in-depth guide to the premier Muay Thai boxing stadiums in Chiang Mai. Experience the traditional martial art in the city's top venues.">
-      <meta name="keywords" content="Muay Thai, Chiang Mai, Boxing Stadiums, Martial Art, Thai Culture">
-      <link rel="canonical" href="https://www.muaythaicm.com/muaythai">
-    </nuxt-head>
 
     <header>
       <h1>Muay Thai in Chiang Mai: An In-depth Look at the City's Premier Boxing Stadiums</h1>
@@ -18,11 +10,13 @@
     </section>
 
     <article>
+      <h2>Chiangmai Boxing Stadium:</h2>
+      <p>central attraction, Chiangmai Boxing Stadium is celebrated for its authentic Muay Thai showcases. It features skilled fighters from various Thai regions, making it a favorite among both locals and tourists.</p>
+
+
       <h2>Loikroh Boxing Stadium:</h2>
       <p>Centrally located, Loikroh Boxing Stadium is a beacon for Muay Thai enthusiasts. It seamlessly blends traditional rituals with adrenaline-pumping matches. The stadium's ambiance is electric, with passionate crowds and rhythmic music setting the tone for intense bouts.</p>
 
-      <h2>Chiangmai Boxing Stadium:</h2>
-      <p>Another central attraction, Chiangmai Boxing Stadium is celebrated for its authentic Muay Thai showcases. It features skilled fighters from various Thai regions, making it a favorite among both locals and tourists.</p>
 
       <h2>Thapae Stadium:</h2>
       <p>Located near the historic Thapae Gate, this stadium offers a mix of modern and traditional Muay Thai experiences. It's frequented by both locals and international visitors, with reviews highlighting the authenticity of the fights and the vibrant atmosphere.</p>
@@ -117,6 +111,21 @@ const images = ref([
   { src: 'https://koh-samui.com/travelmain/mainimage/muaythai/samui/phetsamui15_samui_thai_boxing.webp' },
   { src: 'https://koh-samui.com/travelmain/mainimage/muaythai/samui/phetsamui19_samui_thai_boxing.webp' },
 ]);
+
+
+useHead({
+  title: 'Muay Thai in Chiang Mai: Premier Boxing Stadiums | Ringside',
+  meta: [
+    { charset: 'UTF-8' },
+    { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
+    { name: 'description', content: 'An in-depth guide to the premier Muay Thai boxing stadiums in Chiang Mai. Experience the traditional martial art in the city\'s top venues.' },
+    { name: 'keywords', content: 'Muay Thai, Chiang Mai, Boxing Stadiums, Martial Art, Thai Culture' }
+  ],
+  link: [
+    { rel: 'canonical', href: 'https://www.muaythaicm.com/muaythai' }
+  ]
+})
+
 </script>
 
 <style>
