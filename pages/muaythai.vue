@@ -22,15 +22,11 @@
       <p>Located near the historic Thapae Gate, this stadium offers a mix of modern and traditional Muay Thai experiences. It's frequented by both locals and international visitors, with reviews highlighting the authenticity of the fights and the vibrant atmosphere.</p>
 
       <h2>Kalare Boxing Stadium:</h2>
-      <p>Nestled within the Kalare Night Bazaar, Kalare Boxing Stadium is a prime spot for Muay Thai in Chiang Mai. Hosting fights thrice a week—every Monday, Wednesday, and Friday—it's renowned for its thrilling bouts and dynamic atmosphere. Whether you're a Muay Thai aficionado or just seeking an exhilarating experience, Kalare promises a well-organized event with amiable staff and affordable ticket prices starting at 400 baht.</p>
+      <p>Nestled within the Kalare Night Bazaar, Kalare Boxing Stadium is a prime spot for Muay Thai in Chiang Mai. Hosting fights thrice a week—every Monday, Wednesday, and Friday—it's renowned for its thrilling bouts and dynamic atmosphere. Whether you're a Muay Thai aficionado or just seeking an exhilarating experience, Kalare promises a well-organized event with amiable staff.</p>
 
       <h2>Pavilion Boxing Stadium Chiang Mai:</h2>
       <p>Located in the Pavilion Night Bazaar, this stadium is another hotspot for Muay Thai enthusiasts. Hosting fights every Thursday, it guarantees an energetic atmosphere and thrilling matches.</p>
-      <ul>
-        <li><strong>Electrifying Fights:</strong> The bouts at Pavilion Boxing Stadium are always unpredictable, featuring highly skilled and seasoned fighters.</li>
-        <li><strong>Vibrant Ambiance:</strong> The stadium buzzes with energy, thanks to an enthusiastic crowd and pulsating music.</li>
-        <li><strong>Budget-friendly Experience:</strong> With tickets starting at just 600 baht, it's an affordable way to immerse oneself in authentic Muay Thai.</li>
-      </ul>
+     
     </article>
 
     <section>
