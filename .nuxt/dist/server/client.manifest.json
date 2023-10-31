@@ -6,10 +6,10 @@
     "module": true,
     "resourceType": "script"
   },
-  "C:/Users/cteer/vueproject/nuxt3/samui/node_modules/nuxt/dist/app/entry.js": {
+  "C:/Users/cteer/vueproject/nuxt3/muaythaicm/node_modules/nuxt/dist/app/entry.js": {
     "resourceType": "script",
     "module": true,
     "isEntry": true,
-    "file": "C:/Users/cteer/vueproject/nuxt3/samui/node_modules/nuxt/dist/app/entry.js"
+    "file": "C:/Users/cteer/vueproject/nuxt3/muaythaicm/node_modules/nuxt/dist/app/entry.js"
   }
 }
