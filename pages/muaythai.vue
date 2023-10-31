@@ -1,5 +1,68 @@
 <template>
   <div class="container mx-auto flex flex-col items-center min-h-screen flex-grow">
+    <div>
+            <!DOCTYPE html>
+      <html lang="en">
+
+      <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Muay Thai in Chiang Mai: Premier Boxing Stadiums | YourSiteName</title>
+          <meta name="description" content="An in-depth guide to the premier Muay Thai boxing stadiums in Chiang Mai. Experience the traditional martial art in the city's top venues.">
+          <meta name="keywords" content="Muay Thai, Chiang Mai, Boxing Stadiums, Martial Art, Thai Culture">
+          <link rel="canonical" href="https://www.yoursite.com/muay-thai-chiang-mai">
+      </head>
+
+      <body>
+
+          <header>
+              <h1>Muay Thai in Chiang Mai: An In-depth Look at the City's Premier Boxing Stadiums</h1>
+          </header>
+
+          <section>
+              <p>Chiang Mai, a city rich in history and culture, is also a vibrant hub for the ancient martial art of Muay Thai. This traditional sport, known as the "Art of Eight Limbs", is a significant part of Thai heritage. The city boasts several stadiums, each offering its unique flavor of this traditional combat sport. Here's a comprehensive overview:</p>
+          </section>
+
+          <article>
+              <h2>Loikroh Boxing Stadium:</h2>
+              <p>Centrally located, Loikroh Boxing Stadium is a beacon for Muay Thai enthusiasts. It seamlessly blends traditional rituals with adrenaline-pumping matches. The stadium's ambiance is electric, with passionate crowds and rhythmic music setting the tone for intense bouts.</p>
+
+              <h2>Chiangmai Boxing Stadium:</h2>
+              <p>Another central attraction, Chiangmai Boxing Stadium is celebrated for its authentic Muay Thai showcases. It features skilled fighters from various Thai regions, making it a favorite among both locals and tourists.</p>
+
+              <h2>Thapae Stadium:</h2>
+              <p>Located near the historic Thapae Gate, this stadium offers a mix of modern and traditional Muay Thai experiences. It's frequented by both locals and international visitors, with reviews highlighting the authenticity of the fights and the vibrant atmosphere.</p>
+
+              <h2>Kalare Boxing Stadium:</h2>
+              <p>Nestled within the Kalare Night Bazaar, Kalare Boxing Stadium is a prime spot for Muay Thai in Chiang Mai. Hosting fights thrice a week—every Monday, Wednesday, and Friday—it's renowned for its thrilling bouts and dynamic atmosphere. Whether you're a Muay Thai aficionado or just seeking an exhilarating experience, Kalare promises a well-organized event with amiable staff and affordable ticket prices starting at 400 baht.</p>
+
+              <h2>Pavilion Boxing Stadium Chiang Mai:</h2>
+              <p>Located in the Pavilion Night Bazaar, this stadium is another hotspot for Muay Thai enthusiasts. Hosting fights every Thursday, it guarantees an energetic atmosphere and thrilling matches.</p>
+              <ul>
+                  <li><strong>Electrifying Fights:</strong> The bouts at Pavilion Boxing Stadium are always unpredictable, featuring highly skilled and seasoned fighters.</li>
+                  <li><strong>Vibrant Ambiance:</strong> The stadium buzzes with energy, thanks to an enthusiastic crowd and pulsating music.</li>
+                  <li><strong>Budget-friendly Experience:</strong> With tickets starting at just 600 baht, it's an affordable way to immerse oneself in authentic Muay Thai.</li>
+              </ul>
+          </article>
+
+          <section>
+              <h3>Tips for Visitors:</h3>
+              <ol>
+                  <li>Show respect for the fighters, crowd, and the sport's cultural significance.</li>
+                  <li>Engage with the crowd by cheering for your preferred fighters.</li>
+                  <li>Most importantly, enjoy the experience! Muay Thai in Chiang Mai is a unique spectacle you won't want to miss.</li>
+              </ol>
+          </section>
+
+          <footer>
+              <p>In conclusion, Chiang Mai offers a diverse range of venues for experiencing Muay Thai. Each stadium, with its distinct offerings, ensures visitors get a taste of this traditional martial art in all its glory.</p>
+          </footer>
+
+      </body>
+
+      </html>
+
+    </div>
     <div
       v-for="(image, index) in images"
       :key="index"
@@ -13,26 +76,10 @@
     </div>
     <Enter   :idenger="idenger"   :organizerId="organizerId" @prereservation-created="handlePrereservationCreated"  /> 
     <div class="text-center mt-8">
-    <p class="text-lg">Discover Koh Samui's best Muay Thai experiences. Featured venues: Phetchbuncha Stadium & Samui International Stadium. Plus, dive into other sports events on the island.</p>
+   
 
-    <p class="text-lg font-bold mt-4">Muay Thai starts at 21:00 every Wednesday, Saturday,in PhetchBuncha stadium  Thursday, and Friday. In Samui international stadium</p>
-
-    <p class="text-lg mt-4">Dive into the "Art of eight limbs". Experience striking techniques with fists, elbows, knees, and shins. Join us for a night you won't forget.</p>
     
-    <p class="text-lg mt-4">At Phetchbuncha: Air-conditioned comfort in Chaweng. Ringside: 2000 units. Normal: 1500 units. Fights on Wednesday & Saturday.</p>
-
-    <p class="text-lg mt-4">Samui International in Chaweng, Soi Reggae, has fights every Thursday & Friday.</p>
-    
-    <p class="text-lg mt-4 font-bold">Book your thrilling Muay Thai experience now!</p>
-
-    <p class="text-lg mt-4">
-        <a href="https://goo.gl/maps/SvdrnGVSfun71vEj6">PhetchBuncha Stadium Location</a>
-    </p>
-
-    <p class="text-lg mt-4">
-        <a href="https://maps.app.goo.gl/pobfuGfQbPbT8E9y9">Samui International Stadium Location</a>
-    </p>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+         <br/><br/><br/><br/><br/><br/><br/><br/>
 
     </div>
     <div id="floating-button">
