@@ -4,10 +4,16 @@
 
 
 <header>
-  <h1>Muay Thai in Chiang Mai: An In-depth Look at the City's Premier Boxing Stadiums</h1>
+  <h1>Muay Thai in Chiang Mai: An In-depth Look at the City's Premier Boxing Stadiums and Training</h1>
 </header>
 
+<div @click="goToReser" class="text-gray-500 cursor-pointer">
+      🌺 Booking Muay Thai match click here 🌺
+    </div>  
+  <img src="~/assets/ChiangMai/MuayThaiChiangmai.webp" alt="Muay Thai Chiangmai logo" /> 
+
 <section>
+
   <p>Chiang Mai, a city rich in history and culture, is also a vibrant hub for the ancient martial art of Muay Thai. This traditional sport, known as the "Art of Eight Limbs", is a significant part of Thai heritage. The city boasts several stadiums, each offering its unique flavor of this traditional combat sport. Here's a comprehensive overview:</p>
 </section>
 
