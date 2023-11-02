@@ -27,13 +27,23 @@ const events = ref([])
 const router = useRouter()
 console.log(route.query)
 const preReservationId = route.query.preserId
+const organizerId = route.query.organizerId;
+
 const eventGroup = route.query.eventGroup
 
 onMounted(async () => {
+  let url;
+  
+  if (organizerId === 'aaa') {
+    url = `https://koh-samui.com:53005/event/events-by-group/${eventGroup}`;
+  } else {
+    url = `https://koh-samui.com:53005/event/event/${organizerId}`;
+  }
+
   try {
     // specify the organizerId here, you may want to get this from user input or some other source
     // const organizerId = '645d64c086e4d377b0496543'; 
-    const response = await fetch(`https://koh-samui.com:53005/event/events-by-group/${eventGroup}`)
+    const response = await fetch(url);
     if (!response.ok) {
       throw new Error('Network response was not ok')
     }
