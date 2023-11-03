@@ -9,9 +9,9 @@
     
     
   
-    <div @click="goToReser" class="text-gray-500 cursor-pointer">
+    <!-- <div @click="goToReser" class="text-gray-500 cursor-pointer">
       🌺 Booking Muay Thai match click here 🌺
-    </div>
+    </div> -->
     
     <img src="~/assets/ChiangMai/airconditionedstadium.webp" alt="Chiangmai Muay Thai boxing stadium" /> 
     
