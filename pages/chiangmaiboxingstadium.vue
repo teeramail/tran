@@ -8,6 +8,13 @@
     
     
     
+  
+    <div @click="goToReser" class="text-gray-500 cursor-pointer">
+      🌺 Booking Muay Thai match click here 🌺
+    </div>
+    
+    <img src="~/assets/ChiangMai/airconditionedstadium.webp" alt="Chiangmai Muay Thai boxing stadium" /> 
+    
     <p>
       The stadium is more than just a venue; it's a cultural experience. Dive deep into the essence of Muay Thai and its significance to the Thai people. And while the matches captivate you, enjoy a selection of beverages, from beer and soda to refreshing water.
     </p>
@@ -16,16 +23,10 @@
       For an authentic and comfortable Muay Thai experience, Chiangmai Boxing Stadium is the place to be.
     </p>
     
-    <div @click="goToReser" class="text-gray-500 cursor-pointer">
-      🌺 Booking Muay Thai match click here 🌺
-    </div>
-    
-    <img src="~/assets/ChiangMai/airconditionedstadium.webp" alt="Chiangmai Muay Thai boxing stadium" /> 
-    
     <p>
       Witness skilled fighters showcase their prowess in the ring. Choose from a variety of ticket options: VIP seats at 1500 baht, ringside views for 1000 baht, or regular seating at 600 baht.
     </p>
-    
+
     <img src="~/assets/ChiangMai/SeatChiangmaiBoxingStadium.webp" alt="stadium seat plan" /> 
 
     <Enter :idenger="idenger" :organizerId="organizerId" @prereservation-created="handlePrereservationCreated" />
