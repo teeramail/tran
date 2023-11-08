@@ -83,8 +83,6 @@ const url = ref(route.query.url || 'default_url');
 const organizerId = 'aaa';
 const eventGroup = 'cm001';
 
-
-
 console.log(route.query.idenger)
 watch(() => route.query, newQuery => {
   idenger.value = newQuery.idenger;
