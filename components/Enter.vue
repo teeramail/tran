@@ -9,8 +9,8 @@ import { useRoute, useRouter } from 'vue-router';
 
 const emit = defineEmits(['prereservation-created']);
 const route = useRoute();
-const router = useRouter();
 const idenger = ref(route.query.idenger); 
+const url = ref('');
 
 async function submitForm() {
     try {
@@ -28,7 +28,8 @@ async function submitForm() {
           
         // Prepare the data to be sent to the server
         const preReservationData = {
-            idenger: idenger.value,   
+            idenger: idenger.value, 
+            url: url.value,  
             createdAt: new Date(),
         }
   
