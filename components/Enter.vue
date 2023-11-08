@@ -5,7 +5,7 @@
   
 <script setup>
 import { onMounted, ref } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
+import { useRoute} from 'vue-router';
 
 const emit = defineEmits(['prereservation-created']);
 const route = useRoute();
