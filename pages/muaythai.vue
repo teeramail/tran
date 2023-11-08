@@ -77,6 +77,7 @@ const route = useRoute();
 
 const idenger = ref('lh8o66gwjf21pcl'); 
 const preserId = ref(null); 
+const url = ref(route.query.url || 'default_url');
 
 // If organizerId is aaa then all events will be listed
 const organizerId = 'aaa';
@@ -87,6 +88,7 @@ const eventGroup = 'cm001';
 console.log(route.query.idenger)
 watch(() => route.query, newQuery => {
   idenger.value = newQuery.idenger;
+  url.value = newQuery.url || 'default_url'; 
 });
 
 const handlePrereservationCreated = (prereservationId) => {
