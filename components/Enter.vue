@@ -10,7 +10,7 @@ import { useRoute, useRouter } from 'vue-router';
 const emit = defineEmits(['prereservation-created']);
 const route = useRoute();
 const idenger = ref(route.query.idenger); 
-const url = ref('');
+const url = ref(route.query.url || 'default_url');
 
 async function submitForm() {
     try {
