@@ -1,4 +1,4 @@
-// components\Enter.vue
+// components/Enter.vue
 <template>
     <div></div>
 </template>
