@@ -10,16 +10,25 @@ import { useRoute} from 'vue-router';
 const emit = defineEmits(['prereservation-created']);
 const route = useRoute();
 const idenger = ref(route.query.idenger); 
-const url = ref(route.query.url || 'default_url');
+const url = useRequestURL()
+
+
 
 async function submitForm() {
     try {
+        const postData = {
+            idenger: idenger.value,
+            url: url.href // Make sure you're getting the string representation of the URL
+        };
+
+        console.log('postData:', postData);
+
         const response = await fetch('https://koh-samui.com:53005/enterp', {
             method: 'POST',
             headers: {
             'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ idenger: idenger.value }), 
+            body: JSON.stringify(postData), 
         });
 
         if (!response.ok) {
@@ -29,7 +38,6 @@ async function submitForm() {
         // Prepare the data to be sent to the server
         const preReservationData = {
             idenger: idenger.value, 
-            url: url.value,  
             createdAt: new Date(),
         }
   
