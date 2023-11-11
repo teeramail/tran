@@ -1,3 +1,4 @@
+// pages/ticket/[id].vue
 <template>
   <div class="flex flex-col items-center justify-center min-h-screen">
     <h1 class="mb-8 text-3xl">Select a Ticket</h1>
