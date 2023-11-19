@@ -5,7 +5,7 @@
     <!-- Hero Section: Displaying Event Title and Booking Information -->
     <section class="uno-hero">
       <h1 class="uno-title">Upcoming Muay Thai events at various stadiums in Chiang Mai</h1>
-      <p class="uno-subtitle">Book & Confirm Instantly. Please note that bookings are non-refundable.</p>
+      <p class="uno-subtitle">Book & Confirm Instantly. Please note that bookings are non-refundable. All prices include taxes and fees, with no charges for booking and no hidden fees.</p>
     </section>
 
     <!-- Assistance Section: Providing Contact Information -->
