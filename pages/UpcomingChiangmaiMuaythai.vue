@@ -7,7 +7,8 @@
       <h1 class="uno-title">Upcoming Muay Thai events at various stadiums in Chiang Mai</h1>
       <p class="uno-subtitle">Book & Confirm Instantly. Please note that bookings are non-refundable. All prices include taxes and fees, with no charges for booking and no hidden fees.</p>
     </section>
-
+     
+      <img src="~/assets/ChiangMai/UpChiangmai1.webp" alt="Muay Thai Chiang mai logo" /> 
     <!-- Assistance Section: Providing Contact Information -->
     <section class="uno-assistance">
       <h2>Need Assistance?</h2>
@@ -20,6 +21,12 @@
   
   </main>
 
+    <div id="floating-button">
+      <div class="button-container">
+        <BookNowButton :preserId="preserId" :idenger="idenger" :organizerId="organizerId" :eventGroup="eventGroup" class="mb-4" />
+      </div>
+    </div>
+
   <!-- Event Listing: Displaying a List of Events -->
 <div class="grid grid-cols-1 gap-4 mt-10">
   <button v-for="event in events" :key="event._id" :class="['p-4 text-white rounded-lg', organizerColors.get(event.organizerId)]" @click="showDetails(event)">
@@ -28,7 +35,7 @@
 </div>
 
 <br>
-  <img src="~/assets/ChiangMai/UpChiangmai1.webp" alt="Muay Thai Chiang mai logo" /> 
+
 
 
   <!-- Enter Component: Handling Pre-reservation -->
