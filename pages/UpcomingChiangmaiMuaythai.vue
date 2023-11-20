@@ -9,6 +9,9 @@
     </section>
      
       <img src="~/assets/ChiangMai/UpChiangmai1.webp" alt="Muay Thai Chiang mai logo" /> 
+      <br>
+     <img src="~/assets/ChiangMai/UpChiangmai2.webp" alt="Muay Thai Chiang mai Thapare Chiangmai stadium" /> 
+
     <!-- Assistance Section: Providing Contact Information -->
     <section class="uno-assistance">
       <h2>Need Assistance?</h2>
