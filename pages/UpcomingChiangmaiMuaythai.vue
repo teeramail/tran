@@ -13,6 +13,10 @@
       <h2>Need Assistance?</h2>
       <p>Contact us at Tel/WhatsApp: +66985964947 for help with your booking or any questions.</p>
     </section>
+
+      <section class="uno-assistance">
+      <h2>Click the button below to book</h2>
+    </section>
   </main>
 
   <!-- Event Listing: Displaying a List of Events -->
@@ -26,14 +30,7 @@
   <!-- Enter Component: Handling Pre-reservation -->
   <Enter :idenger="idenger" :organizerId="organizerId" @prereservation-created="handlePrereservationCreated" />
    
-  <!-- Book Now Section: Providing Booking Functionality -->
-  <div class="container mx-auto flex flex-col items-center min-h-screen flex-grow">
-    <div id="floating-button">
-      <div class="button-container">
-        <BookNowButton :preserId="preserId" :idenger="idenger" :organizerId="organizerId" :eventGroup="eventGroup" class="mb-4" />
-      </div>
-    </div>
-  </div>
+  
 </template>
 
 <script setup>
@@ -82,6 +79,19 @@ const handlePrereservationCreated = (prereservationId) => {
   preserId.value = prereservationId; // Updating preserId with the newly created prereservation ID
 };
 
+
+useHead({
+  title: 'Muay Thai on Chiang Mai: Premier Boxing Stadiums | Ringside',
+  meta: [
+    { charset: 'UTF-8' },
+    { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
+    { name: 'description', content: 'An in-depth guide to the premier Muay Thai boxing stadiums On Chiang Mai.Book ticket, Experience the traditional martial art in the city\'s top venues.' },
+    { name: 'keywords', content: 'Muay Thai, Chiang Mai, Boxing Stadiums,Tapare, Thaphare , Martial Art, Thai Culture' }
+  ],
+  link: [
+    { rel: 'canonical', href: 'https://www.muaythaiphangan.com/muaythai' }
+  ]
+})
 // Fetching event data on component mount
 onMounted(async () => {
   let url;
