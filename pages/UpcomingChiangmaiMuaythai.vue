@@ -17,6 +17,7 @@
       <section class="uno-assistance">
       <h2>Click the button below to book</h2>
     </section>
+  
   </main>
 
   <!-- Event Listing: Displaying a List of Events -->
@@ -25,6 +26,9 @@
     {{ formatDate(event.eventDate) }} {{ event.eventName }}
   </button>
 </div>
+
+<br>
+  <img src="~/assets/ChiangMai/UpChiangmai1.webp" alt="Muay Thai Chiang mai logo" /> 
 
 
   <!-- Enter Component: Handling Pre-reservation -->
