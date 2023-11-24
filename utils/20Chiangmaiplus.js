@@ -1,15 +1,15 @@
 const moment = require('moment-timezone');
 
-let startDate = moment.tz('2023-11-23 21:00', 'Asia/Bangkok');
+let startDate = moment.tz('2023-11-24 21:00', 'Asia/Bangkok');
 const events = [];
 
-const numberOfDays = 2;
+const numberOfDays = 3;
 
 for (let i = 0; i < numberOfDays; i++) {
   let eventCreated = false;
 
   // Chiangmai Boxing stadium
-  if (startDate.day() === 1 || startDate.day() === 2 || startDate.day() === 3 || startDate.day() === 4) {
+  if (startDate.day() === 1 || startDate.day() === 2 || startDate.day() === 3 || startDate.day() === 4 || startDate.day() === 5|| startDate.day() === 6 ) {
     events.push({
       "eventType": "boxing",
       "eventName": "Chiangmai Boxing stadium",
@@ -46,7 +46,7 @@ for (let i = 0; i < numberOfDays; i++) {
   }
 
   // Thaphae boxing chiangmai (Mon, Tue, Wed, Thu)
-  if (startDate.day() === 1 || startDate.day() === 2 || startDate.day() === 3 || startDate.day() === 4) {
+  if (startDate.day() === 1 || startDate.day() === 2 || startDate.day() === 3 || startDate.day() === 4 || startDate.day() === 5|| startDate.day() === 6 ) {
     events.push({
       "eventType": "boxing",
       "eventName": "Thaphae boxing chiangmai stadium",
