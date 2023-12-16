@@ -62,10 +62,20 @@
 
 </div>
 
+<div id="floating-button">
+  <div class="button-container">
+    <BookNowButton :preserId="preserId" :idenger="idenger" :organizerId="organizerId" :eventGroup="eventGroup" class="mb-4" />
+  </div>
+</div>
+
+
 </template>
   
    
 <script setup lang="ts">
+
+const organizerId = 'aaa'; // Default organizer ID to list all events
+const eventGroup = 'cm001'; // Group ID for the event
 
 useHead({
   title: 'Muay Thai in Chiang Mai: Premier Boxing Stadiums | Ringside learn Thai Boxing',
@@ -80,3 +90,24 @@ useHead({
   ]
 })
 </script>
+
+<style>
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+#floating-button {
+position: fixed;
+width: 100%;
+bottom: 20px;
+z-index: 100;
+}
+
+.button-container {
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+</style>
