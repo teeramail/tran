@@ -8,9 +8,13 @@
       <p class="uno-subtitle">Book & Confirm Instantly. Please note that bookings are non-refundable. All prices include taxes and fees, with no charges for booking and no hidden fees.</p>
     </section>
      
+      <img src="~/assets/ChiangMai/mainfight.webp" alt="Muay Thai main fight" /> 
+      <br>
       <img src="~/assets/ChiangMai/UpChiangmai1.webp" alt="Muay Thai Chiang mai logo" /> 
       <br>
-     <img src="~/assets/ChiangMai/UpChiangmai2.webp" alt="Muay Thai Chiang mai Thapare Chiangmai stadium" /> 
+      <img src="~/assets/ChiangMai/UpChiangmai2.webp" alt="Thaiboxing Chiang mai logo" /> 
+      <br>
+     <img src="~/assets/ChiangMai/UpChiangmai3.webp" alt="Muay Thai Chiang mai Thapare Chiangmai stadium" /> 
 
     <!-- Assistance Section: Providing Contact Information -->
     <section class="uno-assistance">
