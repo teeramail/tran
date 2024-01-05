@@ -36,7 +36,9 @@
         <!-- The BookNowButton component -->
         <BookNowButton :preserId="preserId" :idenger="idenger" :organizerId="organizerId" :eventGroup="eventGroup" class="mb-4" />
       </div>
+     
     </div>
+     <up/>
   </div>
 </template>
 
@@ -83,7 +85,7 @@ useHead({
     { name: 'keywords', content: 'Muay Thai, Chiang Mai, Boxing Stadiums, Martial Art, Thai Culture' }
   ],
   link: [
-    { rel: 'canonical', href: 'https://www.muaythaicm.com/muaythai' }
+    { rel: 'canonical', href: 'https://www.muaythaicm.com/ <up/>' }
   ]
 })
 
