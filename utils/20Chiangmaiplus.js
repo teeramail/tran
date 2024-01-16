@@ -1,6 +1,6 @@
 const moment = require('moment-timezone');
 
-let startDate = moment.tz('2024-01-08 21:00', 'Asia/Bangkok');
+let startDate = moment.tz('2024-01-15 21:00', 'Asia/Bangkok');
 const events = [];
 
 const numberOfDays = 7;
@@ -44,7 +44,28 @@ for (let i = 0; i < numberOfDays; i++) {
     });
     eventCreated = true;
   }
+  // LOI KROH MUAY THAI STADIUM CHIANGMAI
+  if (startDate.day() === 1 || startDate.day() === 3 || startDate.day() === 5 || startDate.day() === 6) {
+    events.push({
+      "eventType": "boxing",
+      "eventName": "LOI KROH MUAY THAI STADIUM CHIANGMAI",
+      "eventDate": {
+        "$date": {
+          "$numberLong": startDate.valueOf().toString()
+        }
+      },
+      "organizerId": "65930650077ebc70a6905b27",
+      "tickets": [
+        {"type": "Ringside", "price": 1000, "myprice": 700, "available": 96, "sold": 0},
+        {"type": "Standard", "price": 600, "myprice": 450, "available": 498, "sold": 0}
+      ],
+      "eventGroup": "cm001",
+      "eventDescription": "https://maps.app.goo.gl/aqv9RtUdexVuQm7u6"
+    });
+    eventCreated = true;
+  }
 
+ 
   // Thaphae boxing chiangmai (Mon, Tue, Wed, Thu)
   if (startDate.day() === 1 || startDate.day() === 2 || startDate.day() === 3 || startDate.day() === 4 || startDate.day() === 5|| startDate.day() === 6 ) {
     events.push({
