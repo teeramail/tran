@@ -62,6 +62,9 @@
 
 </div>
 
+ <Enter   :idenger="idenger"   :organizerId="organizerId" @prereservation-created="handlePrereservationCreated"  /> 
+
+
 <div id="floating-button">
   <div class="button-container">
     <BookNowButton :preserId="preserId" :idenger="idenger" :organizerId="organizerId" :eventGroup="eventGroup" class="mb-4" />
@@ -73,9 +76,28 @@
   
    
 <script setup lang="ts">
+import { ref, watch } from 'vue';
+import Enter from '@/components/Enter.vue'
+import BookNowButton from '@/components/BookNowButton.vue'
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
+
+const idenger = ref('lh8o66gwjf21pcl'); 
+const preserId = ref(null); 
 
 const organizerId = 'aaa'; // Default organizer ID to list all events
 const eventGroup = 'cm001'; // Group ID for the event
+
+console.log(route.query.idenger)
+watch(() => route.query, newQuery => {
+  idenger.value = newQuery.idenger;
+});
+
+const handlePrereservationCreated = (prereservationId) => {
+  console.log(prereservationId);
+  preserId.value = prereservationId;
+}
 
 useHead({
   title: 'Muay Thai in Chiang Mai: Premier Boxing Stadiums | Ringside learn Thai Boxing',
