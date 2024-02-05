@@ -18,7 +18,10 @@
             <img src="~/assets/ThaphaeBoxingStadium/chiangmaiboxing_thaphaestadium_1.webp" alt="Thaiboxing traditional martial art " class="mb-4"/>
         </div>
 
-       
+       https://muaythaicm.com/chiangmaiboxingstadium?idenger=chIangUpCo5
+https://muaythaicm.com/LoiKrohStadium?idenger=chIangUpCo5
+https://muaythaicm.com/ThaphaeBoxingStadium?idenger=chIangUpCo5
+https://muaythaicm.com/UpcomingChiangmaiMuaythai?idenger=chIangUpCo5
         <up/>
     </div>
 
