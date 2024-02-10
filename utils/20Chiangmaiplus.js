@@ -1,9 +1,9 @@
 const moment = require('moment-timezone');
 
-let startDate = moment.tz('2024-02-05 21:00', 'Asia/Bangkok');
+let startDate = moment.tz('2024-02-12 21:00', 'Asia/Bangkok');
 const events = [];
 
-const numberOfDays = 7;
+const numberOfDays = 3;
 
 for (let i = 0; i < numberOfDays; i++) {
   let eventCreated = false;
