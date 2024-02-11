@@ -40,6 +40,10 @@
     {{ formatDate(event.eventDate) }} {{ event.eventName }}
   </button>
 </div>
+    <div>
+            <p class="text-lg font-bold"> Any help or complimentary Pick-Up Service , please contact us via telephone or WhatsApp or email at the following numbers: +66 985 964 947 or +66 842 578 299. khwansamuiplay@gmail.com </p>
+
+    </div>
 
 <br><br><br><br><br><br><br><br><br><br><br>
 
