@@ -70,7 +70,7 @@ for (let i = 0; i < numberOfDays; i++) {
   if (startDate.day() === 1 || startDate.day() === 2 || startDate.day() === 3 || startDate.day() === 4 || startDate.day() === 5|| startDate.day() === 6 ) {
     events.push({
       "eventType": "boxing",
-      "eventName": "Thaphae boxing chiangmai stadium",
+      "eventName": "Thaphae boxing  stadium, Chiangmai",
       "eventDate": {
         "$date": {
           "$numberLong": startDate.valueOf().toString()
