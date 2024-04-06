@@ -21,6 +21,12 @@
     </div>
     <div>
             <p class="text-lg font-bold"> Any help or complimentary Pick-Up Service , please contact us via telephone or WhatsApp or email at the following numbers: +66 985 964 947 or +66 842 578 299. khwansamuiplay@gmail.com </p>
+             <div>
+ 
+           <p class="text-lg ">Remark 
+the complimentary pick-up service is occasionally fully booked. To secure your spot, kindly notify us at least one day in advance or a minimum of six hours before the program starts. In the event that we are unable to accommodate your pick-up due to our vehicle being at full capacity, we kindly request that you make your own arrangements to reach the stadium. We appreciate your understanding and cooperation in ensuring a smooth experience for all participants..</p>
+
+    </div>
 
     </div>
   </main>
