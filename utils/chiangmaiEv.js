@@ -1,14 +1,14 @@
 const moment = require('moment-timezone');
-let startDate = moment.tz('2024-05-01 21:00', 'Asia/Bangkok');
+let startDate = moment.tz('2024-05-04 21:00', 'Asia/Bangkok');
 const events = [];
-const numberOfDays = 3;
+const numberOfDays = 4;
 let daysGenerated = 0;
 
 while (daysGenerated < numberOfDays) {
   let eventCreated = false;
 
   // Chiangmai Boxing stadium
-  if (startDate.day() !== 0) {
+  if (startDate.day() === 1 || startDate.day() === 2 || startDate.day() === 4   || startDate.day() === 6 ) {
     events.push({
       "eventType": "boxing",
       "eventName": "Chiangmai Boxing stadium",
@@ -26,7 +26,7 @@ while (daysGenerated < numberOfDays) {
   }
 
   // LOI KROH MUAY THAI STADIUM CHIANGMAI
-  if (startDate.day() === 1 || startDate.day() === 3 || startDate.day() === 5 || startDate.day() === 6) {
+  if (startDate.day() === 1 || startDate.day() === 3 || startDate.day() === 5  /* || startDate.day() === 6 */) {
     events.push({
       "eventType": "boxing",
       "eventName": "LOI KROH MUAY THAI STADIUM CHIANGMAI",
