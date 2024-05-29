@@ -11,7 +11,7 @@
     <!-- Assistance Section: Providing Contact Information -->
     <section class="uno-assistance">
       <h2>Need Assistance?</h2>
-      <p>Contact us at Tel/WhatsApp: +66985964947 for help with your booking or any questions.</p>
+      <p>Contact us at Tel/WhatsApp: +66842578299 for help with your booking or any questions.</p>
     </section>
 
     <section class="uno-assistance">
