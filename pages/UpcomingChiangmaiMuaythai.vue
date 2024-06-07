@@ -41,7 +41,7 @@
   </button>
 </div>
     <div>
-            <p class="text-lg font-bold"> Any help or complimentary Pick-Up Service , please contact us via telephone or WhatsApp or email at the following numbers: +66 985 964 947 or +66 842 578 299. khwansamuiplay@gmail.com </p>
+            <p class="text-lg font-bold"> Any help or complimentary Pick-Up Service , please contact us via telephone or WhatsApp or email at the following numbers: +66 842 578 299. khwansamuiplay@gmail.com </p>
 
     </div>
 

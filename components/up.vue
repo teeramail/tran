@@ -6,7 +6,7 @@
     <section class="uno-hero">
       <h1 class="uno-title">Upcoming Muay Thai events at various stadiums in Chiang Mai</h1>
       <p class="uno-subtitle">Book & Confirm Instantly. Please note that bookings are non-refundable. All prices include taxes and fees, with no charges for booking and no hidden fees.</p>
-      <p class="uno-subtitle"> Any help or complimentary Pick-Up Service , please contact us via telephone or WhatsApp or email at the following numbers: +66 985 964 947 or +66 842 578 299. khwansamuiplay@gmail.com</p>
+      <p class="uno-subtitle"> Any help or complimentary Pick-Up Service , please contact us via telephone or WhatsApp or email at the following numbers:  +66 842 578 299. khwansamuiplay@gmail.com</p>
     </section>
      
       <img src="~/assets/ChiangMai/mainfight.webp" alt="Muay Thai main fight" /> 
