@@ -41,7 +41,7 @@ save as email
       <p>Warm regards,</p>
       <p>Khwan</p>
       <p>Hospitality Associate</p>
-      <p>Tel/WhatsApp: +66842578299</p>
+      <p>Tel/WhatsApp: +66810608540</p>
       <hr /> <!-- Separator between emails -->
     </div>
   </template>
