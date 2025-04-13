@@ -3,7 +3,7 @@
   <div>
     <form
       id="payment-form"
-      action="https://cdn.chillpay.co/Payment/"
+      action="https://sandbox-appsrv2.chillpay.co/api/v2/Payment/"
       method="post"
       role="form"
       class="form-horizontal"
