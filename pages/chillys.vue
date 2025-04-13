@@ -10,7 +10,7 @@ import md5 from 'md5';
 
 async function makePaymentRequest() {
   const param1 = 'M033598';
-  const param2 = 'Db6Ep74yKoBrsTkEsg8ELcfizFvI9vh9EWsvCwz1SmlZammV52DAFfo6zPjUd1Z6';
+  const param2 = '7ynsXqBl3e0vFPfI1fivU9VSAZ8UZTQmta7vz4b6heptCXrrEja8ub1Z8YW6VnDX';
   const param3 = '12821859';
   const md5SecretKey = 'sHsAEKgIHqLMaa2HbJeGP449howZt1gXDiTz3B5yFsloAk9QOkEamIVznJgM78GFXiVDMqMUp1U0ZamgODxOa7HqmpcJtNF1EV5AHqNSnzA1ce2Pa5BIytiJFScdBVE2rZw7yJZyT2bguJJHMGCZG2xTpSm1Vof0x8puZ';
 
