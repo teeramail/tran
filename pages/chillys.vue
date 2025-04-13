@@ -12,7 +12,7 @@ async function makePaymentRequest() {
   const param1 = 'M033598';
   const param2 = 'Db6Ep74yKoBrsTkEsg8ELcfizFvI9vh9EWsvCwz1SmlZammV52DAFfo6zPjUd1Z6';
   const param3 = '12821859';
-  const md5SecretKey = 'DYvAZefVOObYHRiiJXKAD6bLotca4SfiwCSQwhRgylpjNW2nmdZWTt8qrbd06n9W9JlnrorsNIBqH81FDp54sQ6Dfzp7ySTs0vHx7LAc1CP95sVPca6f3Izt3DW5hbdzIfVNjgAtLnzrssut1zBi7XHEVCmCnYktvH9HW';
+  const md5SecretKey = 'sHsAEKgIHqLMaa2HbJeGP449howZt1gXDiTz3B5yFsloAk9QOkEamIVznJgM78GFXiVDMqMUp1U0ZamgODxOa7HqmpcJtNF1EV5AHqNSnzA1ce2Pa5BIytiJFScdBVE2rZw7yJZyT2bguJJHMGCZG2xTpSm1Vof0x8puZ';
 
   const combinedData = param1 + param2 + param3 + md5SecretKey;
   const CheckSum = md5(combinedData);
@@ -24,7 +24,7 @@ async function makePaymentRequest() {
   postData.append('CheckSum', CheckSum);
 
   try {
-    const response = await fetch('https://appsrv.chillpay.co/api/v2/PaymentStatus/', {
+    const response = await fetch('https://sandbox-appsrv2.chillpay.co/api/v2/Payment/', {
       method: 'POST',
       body: postData,
       headers: {
